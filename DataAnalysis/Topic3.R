@@ -1,0 +1,21 @@
+# Используя средства предварительной обработки и дисперсионного анализа изучите данные выборки npk и установите значимость влияния факторов на вариацию зависимой переменной.
+
+# одномерный дисперсионный анализ ANOVA
+# оценка влияния вариации одного или нескольких факторов на вариацию одной зависимой переменной Y
+
+View(npk)
+
+options(contrasts = c("contr.sum", "contr.poly"))
+
+npk.aov <- aov(yield ~ block + N * P * K, npk)
+npk.aov
+summary(npk.aov)
+coef(npk.aov)
+
+options(contrasts = c("contr.treatment", "contr.poly"))
+
+npk.aov1 <- aov(yield ~ block + N + K, data = npk)
+summary.lm(npk.aov1)
+
+se.contrast(npk.aov1, list(N == "0", N == "1"), data = npk)
+model.tables(npk.aov1, type = "means", se = TRUE)
