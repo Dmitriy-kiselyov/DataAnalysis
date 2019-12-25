@@ -1,12 +1,12 @@
-# Проведите канонический анализ для подмножеств переменных набора данных LifeCycleSavings
+п»ї# РџСЂРѕРІРµРґРёС‚Рµ РєР°РЅРѕРЅРёС‡РµСЃРєРёР№ Р°РЅР°Р»РёР· РґР»СЏ РїРѕРґРјРЅРѕР¶РµСЃС‚РІ РїРµСЂРµРјРµРЅРЅС‹С… РЅР°Р±РѕСЂР° РґР°РЅРЅС‹С… LifeCycleSavings
 library(CCP)
 
 View(LifeCycleSavings)
-# sr личные сбережения, pop15 % населения < 15, pop75 % населения > 75, dpi доход на душу населения, dpii % роста dpi
+# sr Р»РёС‡РЅС‹Рµ СЃР±РµСЂРµР¶РµРЅРёСЏ, pop15 % РЅР°СЃРµР»РµРЅРёСЏ < 15, pop75 % РЅР°СЃРµР»РµРЅРёСЏ > 75, dpi РґРѕС…РѕРґ РЅР° РґСѓС€Сѓ РЅР°СЃРµР»РµРЅРёСЏ, dpii % СЂРѕСЃС‚Р° dpi
 cor(LifeCycleSavings)
 
-x = LifeCycleSavings[c(2, 3, 4)] # зависимые
-y = LifeCycleSavings[c(1, 5)] # независимые
+x = LifeCycleSavings[c(2, 3, 4)] # Р·Р°РІРёСЃРёРјС‹Рµ
+y = LifeCycleSavings[c(1, 5)] # РЅРµР·Р°РІРёСЃРёРјС‹Рµ
 
 cx = cor(x)
 cx
@@ -23,7 +23,7 @@ p = dim(x)[2] # number of dependent variables
 q = dim(y)[2] # number of independent variable
 N;p;q
 
-# Проверка значимости канонических корреляций
+# РџСЂРѕРІРµСЂРєР° Р·РЅР°С‡РёРјРѕСЃС‚Рё РєР°РЅРѕРЅРёС‡РµСЃРєРёС… РєРѕСЂСЂРµР»СЏС†РёР№
 p.asym.out <- p.asym(rho, N, p, q, tstat = "Wilks")
 p.asym(rho, N, p, q, tstat = "Hotelling")
 p.asym(rho, N, p, q, tstat = "Pillai")
